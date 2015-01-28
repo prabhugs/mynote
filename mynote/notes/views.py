@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
 #from django.template import RequestContext, loader
 
@@ -13,10 +13,8 @@ def index(request):
     return render(request, "notes/index.html", context)
 
 def detail(request, post_id):
-    try:
-        post = Post.objects.get(pk=post_id)
-    except Post.DoesNotExist:
-        raise Http404("Post does not exist")
+    post = get_object_or_404(Post, pk=post_id)
+
     return render(request, 'notes/detail.html', {'post': post})
 
 def comments(request, post_id):
