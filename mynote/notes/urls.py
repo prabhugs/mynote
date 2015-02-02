@@ -8,4 +8,5 @@ urlpatterns = patterns('',
                        url(r'^$', views.index, name='index'),
                        url(r'^(?P<post_id>\d+)/$', views.detail, name='detail'),
                        url(r'^(?P<post_id>\d+)/comments/$', views.comments, name='comments'),
+                       url(r'^(?P<post_id>\d+)/comment/$', views.comment, name='comment'),
                        )

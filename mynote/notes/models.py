@@ -12,7 +12,7 @@ class Post(models.Model):
     published_date = models.DateTimeField('published on')
 
     def waspublishedrecently(self):
-        return self.published_date >= timezone.datetime.now() - datetime.timedelta(days=1)
+        return timezone.datetime.now() >= self.published_date >= timezone.datetime.now() - datetime.timedelta(days=1)
 
 class Comment(models.Model):
     def __str__(self):
@@ -20,4 +20,5 @@ class Comment(models.Model):
 
     post = models.ForeignKey(Post)
     comment_text = models.CharField(max_length=500)
+    comment_like = models.IntegerField(default=0)
     commented_date = models.DateTimeField('commented on')

@@ -1,4 +1,15 @@
 <h1>{{post.post_text}}</h1>
+        {% if error_message %}<p><strong>{{error_messge}}</strong></p>{% endif %}
+
+<form action="{% url 'notes:comment' post.id%}" method="post">
+    {% csrf_token %}
+    {% for comment in post.comment_set.all %}
+        <input type="radio" name="comment" id="comment{{forloop.counter}}" value="{{comment.id}}" />
+        <label for="comment{{forloop.counter}}">{{comment.comment_text}}</label> <br/>
+    {% endfor %}
+    <input type="submit" value="Comment">
+</form>
+
 <ul>
     {% for comment in post.comment_set.all %}
         <li>{{comment.comment_text}}</li>

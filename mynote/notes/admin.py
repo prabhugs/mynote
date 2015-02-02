@@ -6,8 +6,8 @@ class ChoiceInline(admin.StackedInline):
     extra = 0
     fieldsets = [
         # Uncomment this line to enable editing the comment
-        #(None, {'fields': ['comment_text']}),
-        ('Publish info', {'fields': ['commented_date'], 'classes': ['collapse']}),
+        (None, {'fields': ['comment_text', 'commented_date'],}),
+        #('Publish info', {'fields': ['commented_date'], 'classes': ['collapse']}),
     ]
 
 class PostAdmin(admin.ModelAdmin):
