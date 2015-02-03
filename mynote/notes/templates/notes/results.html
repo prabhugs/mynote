@@ -5,4 +5,4 @@
         <li>{{comment.comment_text}} -- {{comment.comment_like}} Like{{comment.comment_like|pluralize}}</li>
     {% endfor %}
 </ul>
-<a hfref="{% url 'notes:detail' post.id %}"> Like again ? </a>
+<a href="{% url 'notes:detail' post.id %}"> Like again ? </a>

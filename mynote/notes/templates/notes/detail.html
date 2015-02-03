@@ -3,10 +3,8 @@
 
 <form action="{% url 'notes:comment' post.id%}" method="post">
     {% csrf_token %}
-    {% for comment in post.comment_set.all %}
-        <input type="radio" name="comment" id="comment{{forloop.counter}}" value="{{comment.id}}" />
-        <label for="comment{{forloop.counter}}">{{comment.comment_text}}</label> <br/>
-    {% endfor %}
+    <input type="text" name="comment" id="commentid" value="" />
+    <label for="commentid">{{comment.comment_text}}</label> <br/>
     <input type="submit" value="Comment">
 </form>
 
